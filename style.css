@@ -1,26 +1,63 @@
+@font-face {
+    font-family: "Roboto";
+    src: url("./resources/fonts/Roboto-Regular.ttf");
+}
+@font-face {
+    font-family: "Roboto italic";
+    src: url("./resources/fonts/Roboto-Italic.ttf");
+}
+@font-face {
+    font-family: "Roboto bold";
+    src: url("./resources/fonts/Roboto-Bold.ttf");
+}
+@font-face {
+    font-family: "Roboto bold italic";
+    src: url("./resources/fonts/Roboto-BoldItalic.ttf");
+}
+@font-face {
+    font-family: "Roboto light";
+    src: url("./resources/fonts/Roboto-Light.ttf");
+}
+@font-face {
+    font-family: "Roboto light italic";
+    src: url("./resources/fonts/Roboto-LightItalic.ttf");
+}
+
+@keyframes float {
+    0% {transform: translateY(20%);}
+    50% {transform: translateY(-20%);}
+    100% {transform: translateY(20%);}
+}
+
+:root {
+    --color-primary: #0D77FC;
+    --color-secondary: #FF6A00;
+    --color-white: #E4EBFF;
+    --color-black: #11182E;
+
+    --box-shadow: 0px 2px 10px #000A;
+    --animation-duration-quick: 150ms;
+    --animation-duration-medium: 300ms;
+    --animation-duration-slow: 600ms;
+    --animation-ease: ease;
+}
+
 body {
+    margin: 0px; padding: 0px;
+    overflow-x: hidden;
+    background-color: var(--color-white);
+}
+
+.nosize {
     margin: 0px;
     padding: 0px;
+    height: 0px;
+    width: 0px;
 }
 
-h1 {
-    margin: auto auto;
-    margin-top: 40px;
-    padding: 4px 8px;
-    width: min-content;
-    height: min-content;
-    white-space: nowrap;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 40px;
-    border-radius: 10px;
-    box-shadow: 0px 2px 10px #0004;
-    color: white;
-    background-color: dodgerblue;
-}
-
-p {
+h1#info-message {
     text-align: center;
-    color: gray;
-    font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
+    color: var(--color-white);
+    font-family: "roboto light italic";
+    font-size: 2vh;
 }

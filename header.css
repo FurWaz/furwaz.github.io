@@ -1,0 +1,59 @@
+header#container {
+    box-shadow: var(--box-shadow);
+    height: 50px;
+    background-color: var(--color-black);
+    display: inline-flex;
+    position: fixed;
+    top: 0px; left: 0px;
+    z-index: 10;
+}
+
+div#header-options {
+    height: 100%;
+    width: 100vw;
+    padding: 0px 0px;
+    display: inline-flex;
+}
+
+div.header-option-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0px 40px;
+    cursor: pointer;
+    height: 100%;
+    width: min-content;
+} div.header-option-container:hover > h2.header-option {
+    color: var(--color-primary);
+}
+
+h2.header-option {
+    font-family: "Roboto";
+    font-size: 20px;
+    margin: inherit 0px;
+    padding: 0px 0px;
+    color: var(--color-white);
+    transition: color var(--animation-duration-quick) var(--animation-ease);
+}
+
+div#header-connection {
+    width: 20%;
+    padding: 0px 40px;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+} div#header-connection:hover > h2.header-connection {
+    color: var(--color-primary);
+}
+
+h2.header-connection {
+    font-family: "Roboto";
+    font-size: 20px;
+    margin: inherit 0px;
+    padding: 0px 0px;
+    color: var(--color-white);
+    transition: color var(--animation-duration-quick) var(--animation-ease);
+}

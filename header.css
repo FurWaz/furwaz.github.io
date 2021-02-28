@@ -1,16 +1,22 @@
 header#container {
     box-shadow: var(--box-shadow);
     height: 50px;
+    width: 100vw;
     background-color: var(--color-black);
     display: inline-flex;
-    position: fixed;
+    position: sticky;
     top: 0px; left: 0px;
     z-index: 10;
 }
 
+img#header-logo {
+    height: 30px;
+    margin: 10px 10px;
+}
+
 div#header-options {
     height: 100%;
-    width: 100vw;
+    min-width: min-content;
     padding: 0px 0px;
     display: inline-flex;
 }
@@ -22,9 +28,11 @@ div.header-option-container {
     padding: 0px 40px;
     cursor: pointer;
     height: 100%;
-    width: min-content;
+    width: max-content;
 } div.header-option-container:hover > h2.header-option {
     color: var(--color-primary);
+} div.header-option-container:hover:hover > h2.header-option::after {
+    width: 100%;
 }
 
 h2.header-option {
@@ -34,26 +42,21 @@ h2.header-option {
     padding: 0px 0px;
     color: var(--color-white);
     transition: color var(--animation-duration-quick) var(--animation-ease);
+} h2.header-option::after {
+    display: block;
+    content: "";
+    height: 2px;
+    background: var(--color-primary);
+    transition: width var(--animation-duration-quick) ease 0s, left var(--animation-duration-quick) ease 0s;
+    width: 0%;
 }
 
 div#header-connection {
-    width: 20%;
+    position: absolute;
+    right: 0px;
+    width: max-content;
     padding: 0px 40px;
     height: 100%;
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    cursor: pointer;
-} div#header-connection:hover > h2.header-connection {
-    color: var(--color-primary);
-}
-
-h2.header-connection {
-    font-family: "Roboto";
-    font-size: 20px;
-    margin: inherit 0px;
-    padding: 0px 0px;
-    color: var(--color-white);
-    transition: color var(--animation-duration-quick) var(--animation-ease);
+    display: inline-flex;
 }

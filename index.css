@@ -7,28 +7,25 @@ div#page-content {
 div#promo-container {
     height: 50vh;
     width: 100vw;
-    border-bottom: solid 2px var(--color-black);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-left: 6%;
+    margin: 0px; padding: 0px;
     background-color: var(--color-black);
     overflow: hidden;
     background-image: url("./resources/images/abstract_back.png");
-    background-size: 50vw 50vh;
-    background-position: left;
-    box-shadow: 0px 0px 30px #000F inset;
+    background-size: contain;
+    background-position: right;
+    background-repeat: no-repeat;
     border-bottom: solid 6px var(--color-primary);
 }
 
 h1#promo-title {
     margin: 0px;
     padding: 0px;
+    margin-top: 15vh;
     font-size: 14vh;
     font-family: "Roboto bold";
     color: var(--color-primary);
     text-shadow: 0px 0px 26px #0005;
-    z-index: 1;
+    transform: translateX(6vw);
 }
 h1#promo-subtitle {
     margin: 0px;
@@ -37,24 +34,23 @@ h1#promo-subtitle {
     font-family: "Roboto italic";
     color: var(--color-secondary);
     text-shadow: 0px 0px 10px #0008;
-    z-index: 1;
+    transform: translateX(6vw);
 }
 
 div#promo-infos-back {
-    height: 120vh;
-    width: 140vh;
-    transform: translate(-20%, -30%) rotate(50deg);
+    height: 50vh;
+    width: 100vw;
     box-shadow: 0px 0px 30px #0008;
-    border-top: solid 10px var(--color-primary);
+    border-right: solid 10px var(--color-primary);
     background-color: var(--color-black);
-    z-index: 2;
+    transform: translateX(calc(-70vh - 8vw)) skew(30deg);
 }
 
 div#promo-infos-front {
     position: absolute;
     top: 20vh;
     right: 0px;
-    width: 32vw;
+    width: 65vh;
     height: 20vh;
     text-align: left;
     z-index: 1;

@@ -1,0 +1,24 @@
+{
+  "name": "furwaz.github.io",
+  "version": "1.0.0",
+  "description": "OwO, what's this ? It's my website !",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FurWaz/furwaz.github.io.git"
+  },
+  "keywords": [
+    "Website",
+    "FurWaz"
+  ],
+  "author": "FurWaz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FurWaz/furwaz.github.io/issues"
+  },
+  "homepage": "https://github.com/FurWaz/furwaz.github.io#readme"
+}

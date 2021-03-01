@@ -2,17 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta property="og:title" content="FurWaz | Website" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="http://furwaz.github.io" />
-    <meta property="og:image" content="http://furwaz.github.io/resources/images/thumb.png" />
-    <meta property="og:description" content="OwO, what's this ? It's my website !" />
+    <meta property="og:title" content="FurWaz | Website">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://furwaz.github.io">
+    <meta property="og:image" content="http://furwaz.github.io/resources/images/thumb.png">
+    <meta property="og:description" content="OwO, what's this ? It's my website !">
     <meta name="theme-color" content="#FF0000">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="header.css">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="promo.css">
     <link rel="shortcut icon" href="./resources/images/icon.png" type="image/png">
+    <script src="./script.js"></script>
     <title>FurWaz | Website</title>
 </head>
 <body>
@@ -30,19 +31,19 @@
             <img id="header-logo" src="./resources/images/logo.png" alt="furwaz_logo">
             <div id="header-options">
                 <div class="header-option-container">
-                    <h2 class="header-option" id="header-option-home">Home</h2>
+                    <h2 class="header-option" id="header-option-home" onclick="loadPage(PAGES.HOME)">Home</h2>
                 </div>
                 <div class="header-option-container">
-                    <h2 class="header-option" id="header-option-videos">Videos</h2>
+                    <h2 class="header-option" id="header-option-videos" onclick="loadPage(PAGES.VIDEOS)">Videos</h2>
                 </div>
                 <div class="header-option-container">
-                    <h2 class="header-option" id="header-option-songs">Songs</h2>
+                    <h2 class="header-option" id="header-option-songs" onclick="loadPage(PAGES.SONGS)">Songs</h2>
                 </div>
                 <div class="header-option-container">
-                    <h2 class="header-option" id="header-option-songs">Projects</h2>
+                    <h2 class="header-option" id="header-option-songs" onclick="loadPage(PAGES.PROJECTS)">Projects</h2>
                 </div>
                 <div class="header-option-container">
-                    <h2 class="header-option" id="header-option-about">About</h2>
+                    <h2 class="header-option" id="header-option-about" onclick="loadPage(PAGES.ABOUT)">About</h2>
                 </div>
             </div>
             <div id="header-connection">

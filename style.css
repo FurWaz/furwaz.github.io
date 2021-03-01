@@ -30,7 +30,7 @@
 }
 
 :root {
-    --color-primary: #0D77FC;
+    --color-primary: #0099FF;
     --color-secondary: #FF6A00;
     --color-white: #E4EBFF;
     --color-black: #11182E;
@@ -61,3 +61,30 @@ h1#info-message {
     font-family: "roboto light italic";
     font-size: 2vh;
 }
+
+div#page-content {
+    min-height: 180vh;
+    width: 100%;
+    background-color: var(--color-black);
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: var(--color-black);
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-secondary);
+    border-radius: 3px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-white);
+  }

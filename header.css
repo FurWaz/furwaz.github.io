@@ -5,7 +5,7 @@ header#container {
     background-color: var(--color-black);
     display: inline-flex;
     position: sticky;
-    top: 0px; left: 0px;
+    top: -1px; left: 0px;
     z-index: 10;
 }
 

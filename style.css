@@ -62,7 +62,7 @@ h1#info-message {
     font-size: 2vh;
 }
 
-div#page-content {
+div#main-content {
     min-height: 180vh;
     width: 100%;
     background-color: var(--color-black);

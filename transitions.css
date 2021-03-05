@@ -1,0 +1,41 @@
+@keyframes spawn-in-left {
+    0% {transform: translateX(-20%); opacity: 0;}
+    100% {transform: translateX(0%); opacity: 1;}
+}
+@keyframes spawn-out-left {
+    0% {transform: translateX(0%); opacity: 1;}
+    100% {transform: translateX(-20%); opacity: 0;}
+}
+@keyframes spawn-in-right {
+    0% {transform: translateX(20%); opacity: 0;}
+    100% {transform: translateX(0%); opacity: 1;}
+}
+@keyframes spawn-out-right {
+    0% {transform: translateX(0%); opacity: 1;}
+    100% {transform: translateX(20%); opacity: 0;}
+}
+@keyframes spawn-in-top {
+    0% {transform: translateY(-20%); opacity: 0;}
+    100% {transform: translateY(0%); opacity: 1;}
+}
+@keyframes spawn-out-top {
+    0% {transform: translateY(0%); opacity: 1;}
+    100% {transform: translateY(-20%); opacity: 0;}
+}
+@keyframes spawn-in-bottom {
+    0% {transform: translateY(20%); opacity: 0;}
+    100% {transform: translateY(0%); opacity: 1;}
+}
+@keyframes spawn-out-bottom {
+    0% {transform: translateY(0%); opacity: 1;}
+    100% {transform: translateY(20%); opacity: 0;}
+}
+
+.spawn-in-left {animation: spawn-in-left var(--animation-duration-quick) var(--animation-ease) forwards;}
+.spawn-out-left {animation: spawn-out-left var(--animation-duration-quick) var(--animation-ease) forwards;}
+.spawn-in-right {animation: spawn-in-right var(--animation-duration-quick) var(--animation-ease) forwards;}
+.spawn-out-right {animation: spawn-out-right var(--animation-duration-quick) var(--animation-ease) forwards;}
+.spawn-in-top {animation: spawn-in-top var(--animation-duration-quick) var(--animation-ease) forwards;}
+.spawn-out-top {animation: spawn-out-top var(--animation-duration-quick) var(--animation-ease) forwards;}
+.spawn-in-bottom {animation: spawn-in-bottom var(--animation-duration-quick) var(--animation-ease) forwards;}
+.spawn-out-bottom {animation: spawn-out-bottom var(--animation-duration-quick) var(--animation-ease) forwards;}

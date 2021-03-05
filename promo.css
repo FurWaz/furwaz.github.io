@@ -5,10 +5,11 @@ div#promo-container {
     background-color: var(--color-black);
     overflow: hidden;
     background-image: url("./resources/images/abstract_back.png");
-    background-size: contain;
-    background-position: right;
+    background-size: 60vw;
+    background-position: center right;
     background-repeat: no-repeat;
     border-bottom: solid 6px var(--color-primary);
+    transition: height var(--animation-duration-medium) var(--animation-ease);
 }
 
 h1#promo-title {
@@ -20,6 +21,7 @@ h1#promo-title {
     color: var(--color-primary);
     text-shadow: 0px 0px 26px #0005;
     transform: translateX(6vw);
+    transition: margin-top var(--animation-duration-medium) var(--animation-ease);
 }
 h1#promo-subtitle {
     margin: 0px;
@@ -37,7 +39,8 @@ div#promo-infos-back {
     box-shadow: 0px 0px 30px #0008;
     border-right: solid 10px var(--color-primary);
     background-color: var(--color-black);
-    transform: translateX(calc(-70vh - 8vw)) skew(30deg);
+    transform: translate(calc(-70vh - 8vw), 0vh) skew(30deg);
+    transition: transform var(--animation-duration-medium) var(--animation-ease);
 }
 
 div#promo-infos-front {
@@ -48,6 +51,7 @@ div#promo-infos-front {
     height: 20vh;
     text-align: left;
     z-index: 1;
+    transition: top var(--animation-duration-medium) var(--animation-ease);
 }
 
 h2#promo-infos-text {

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>BrainFuck viewer</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js"></script>
+</head>
+<body>
+    <div class="nosize">
+        <div class="center">
+            <div id="input-popup">
+                <h2>Input required:</h2>
+                <input type="text" id="input-zone">
+            </div>
+        </div>
+    </div>
+    <h1>BrainFuck Viewer</h1>
+    <div id="case-collection"></div>
+    <div id="cursor-zone">
+        <h2 id="cursor">></h2>
+    </div>
+    <p>Code: </p>
+    <div class="nosize"><div id="colorizer"></div></div>
+    <textarea id="code-zone"></textarea>
+    <p>Output: </p>
+    <textarea id="result-zone"></textarea>
+    <div class="buttons">
+        <button id="resetBtn" onclick="reset();">Reset</button>
+        <div class="ops">
+            <h2 style="color: var(--color-white);">Nombre d'opérations par seconde:</h2>
+            <input type="text" id="opPerSec" value="6">
+        </div>
+        <button id="launchBtn" onclick="compileCode();">Launch</button>
+    </div>
+</body>
+</html>

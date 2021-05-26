@@ -10,9 +10,6 @@
     <meta name="theme-color" content="#FF0000">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="header.css">
-    <link rel="stylesheet" href="promo.css">
-    <link rel="stylesheet" href="transitions.css">
     <link rel="shortcut icon" href="./resources/images/icon.png" type="image/png">
     <script src="./script.js"></script>
     <script src="./pages/home.js"></script>
@@ -23,45 +20,27 @@
     <title>FurWaz | Website</title>
 </head>
 <body>
-    <div id="main-content">
-        <div id="promo-container">
-            <div class="nosize"><div id="promo-infos-front">
-                <h2 id="promo-infos-text">Welcome to my website !</h2>
-                <h2 id="promo-infos-subtext">Here you can find all my recent videos, songs, projects and ressources you want !</h2>
-            </div></div>
-            <div class="nosize"><div id="promo-infos-back"></div></div>
-            <h1 id="promo-title">FurWaz</h1>
-            <h1 id="promo-subtitle">OwO, what's this ? It's my website !</h1>
-        </div>
-        <header id="container">
-            <img id="header-logo" src="./resources/images/logo.png" alt="furwaz_logo">
-            <div id="header-options">
-                <div class="header-option-container" onclick="loadPage(PAGES.HOME)">
-                    <h2 class="header-option" id="header-option-home">Home</h2>
-                </div>
-                <div class="header-option-container" onclick="loadPage(PAGES.VIDEOS)">
-                    <h2 class="header-option" id="header-option-videos">Videos</h2>
-                </div>
-                <div class="header-option-container" onclick="loadPage(PAGES.SONGS)">
-                    <h2 class="header-option" id="header-option-songs">Songs</h2>
-                </div>
-                <div class="header-option-container" onclick="loadPage(PAGES.PROJECTS)">
-                    <h2 class="header-option" id="header-option-songs">Projects</h2>
-                </div>
-                <div class="header-option-container" onclick="loadPage(PAGES.ABOUT)">
-                    <h2 class="header-option" id="header-option-about">About</h2>
+    <div id="page-container" class="center-x">
+        <header>
+            <div id="header-graphic">
+                <div class="center-y">
+                    <div class="center-x">
+                        <div id="header-title-container">
+                            <img id="header-title-icon" src="resources/images/logo.png" alt="">
+                            <h1 id="header-title-text">FurWaz</h1>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div id="header-connection">
-                <div class="header-option-container">
-                    <h2 class="header-option" id="header-signin-button">Sign in</h2>
+            <div id="video-section" class="section-container">
+                <div class="center-x">
+                    <h2 class="section-title middle" onclick="loadPage(PAGES.VIDEOS);">Videos</h2>
                 </div>
-                <div class="header-option-container">
-                    <h2 class="header-option" id="header-login-button">Log in</h2>
-                </div>
+                <div id="section-content"></div>
             </div>
         </header>
         <div id="page-content">
+            hello
         </div>
     </div>
 </body>

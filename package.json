@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/FurWaz/furwaz.github.io/issues"
   },
-  "homepage": "https://github.com/FurWaz/furwaz.github.io#readme"
+  "homepage": "https://github.com/FurWaz/furwaz.github.io#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }

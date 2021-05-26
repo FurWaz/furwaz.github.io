@@ -1,0 +1,248 @@
+:root {
+    --color-black: #173f5f;
+    --color-blue: #20639b;
+    --color-green: #3caea3;
+    --color-yellow: #f6d55c;
+    --color-red: #ed553b;
+    --color-white: #ebf0f5;
+
+    --border: 10px;
+    --padding: 5vw;
+    --shadow: 0px 0px 20px #0004;
+    --animation: 100ms ease;
+}
+
+@keyframes spawn {
+    0%{transform: scale(0); opacity: 0; max-width: 0px;}
+    100%{transform: scale(1); opacity: 1; max-width: 90px;}
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: var(--color-black);
+    overflow: hidden;
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.8vh;
+    color: var(--color-white);
+    margin: 0px; padding: 0px;
+    margin-left: 6vw;
+}
+
+h1 {
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: underline 2px var(--color-white);
+    color: var(--color-white);
+    text-align: center;
+}
+
+#case-collection {
+    height: 8vh;
+    padding: 2vh 0px;
+    overflow: hidden;
+    box-shadow: var(--shadow) inset;
+    margin: 0px var(--padding);
+    border-radius: var(--border);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    overflow: hidden;
+    transition: padding var(--animation);
+}
+
+div.case {
+    background-color: var(--color-black);
+    border: solid 2px var(--color-white);
+    border-radius: var(--border);
+    box-shadow: var(--shadow);
+    width: 8vh;
+    height: 8vh;
+    margin: 0px 4px;
+    animation: spawn var(--animation);
+}
+p.case {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--color-yellow);
+    width: fit-content;
+    height: 100%;
+    width: 8vh;
+    text-align: center;
+    margin: 0px; padding: 0px;
+    font-size: 3vh;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+    transition: transform var(--animation);
+}
+
+#cursor {
+    color: var(--color-yellow);
+    margin: 0px;
+    padding: 0px;
+    width: min-content; height: min-content;
+    font-size: 5vh;
+    font-weight: bolder;
+    font-family: Impact;
+    transform: rotate(-90deg);
+    transform-origin: center center;
+    margin-left: 0vw;
+    transition: margin-left var(--animation), transform var(--animation);
+}
+
+#code-zone {
+    height: 35vh;
+    width: calc(100% - var(--padding) * 2 - var(--border) * 2);
+    overflow: hidden;
+    border: none;
+    outline: none;
+    background-color: var(--color-black);
+    box-shadow: var(--shadow) inset;
+    margin: 0px var(--padding);
+    border-radius: var(--border);
+    overflow: hidden;
+    color: var(--color-white);
+    font-size: 1.8vh;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 5px;
+    padding: var(--border);
+    margin-bottom: 1vh;
+}
+
+#result-zone {
+    height: 10vh;
+    width: calc(100% - var(--padding) * 2 - var(--border) * 2);
+    overflow: hidden;
+    border: none;
+    outline: none;
+    background-color: var(--color-black);
+    box-shadow: var(--shadow) inset;
+    margin: 0px var(--padding);
+    border-radius: var(--border);
+    overflow: hidden;
+    color: var(--color-white);
+    font-size: 1.8vh;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 5px;
+    padding: var(--border);
+}
+
+.buttons {
+    margin-top: 3vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px var(--padding);
+}
+
+button, #opPerSec {
+    border-radius: var(--border);
+    border: none;
+    outline: none;
+    width: 6vw;
+    height: 5vh;
+    cursor: pointer;
+    color: var(--color-black);
+    font-size: 2vh;
+    font-family: Arial, Helvetica, sans-serif;
+    box-shadow: var(--shadow);
+} button:hover {
+    filter: brightness(0.8);
+}
+#resetBtn {background-color: var(--color-red);}
+#launchBtn {background-color: var(--color-green);}
+
+#colorizer {
+    position: relative;
+    height: 35vh;
+    width: calc(100vw - var(--padding) * 2 - var(--border) * 2);
+    overflow: hidden;
+    border: none;
+    outline: none;
+    margin: 0px var(--padding);
+    border-radius: var(--border);
+    overflow-y: scroll;
+    color: transparent;
+    font-size: 1.8vh;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 5px;
+    padding: var(--border);
+    margin-top: 3vh;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.nosize {
+    height: 0px;
+    width: 0px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.center {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    pointer-events: none;
+}
+
+#input-popup {
+    position: relative;
+    margin: 0px auto;
+    width: fit-content;
+    height: fit-content;
+    background-color: var(--color-black);
+    border-radius: var(--border);
+    box-shadow: var(--shadow);
+    padding: 4vh 6vh;
+    pointer-events: all;
+    transform: scale(0);
+    transition: transform 200ms ease;
+}
+
+h2 {
+    font-size: 2vh;
+    color: var(--color-yellow);
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0px;
+    margin-bottom: 1vh;
+    padding: 0px;
+}
+
+#input-zone {
+    background-color: var(--color-black);
+    border: solid 2px var(--color-white);
+    border-radius: var(--border);
+    width: 10vw;
+    height: 3vh;
+    outline: none;
+    padding: 2px 5px;
+    font-size: 1.8vh;
+    color: var(--color-white);
+}
+
+div.ops {
+    text-align: center;
+}
+
+#opPerSec {
+    background-color: var(--color-black);
+    border: solid 2px var(--color-white);
+    border-radius: var(--border);
+    width: 10vw;
+    height: 3vh;
+    outline: none;
+    padding: 2px 5px;
+    font-size: 1.8vh;
+    color: var(--color-white);
+    text-align: center;
+    margin: 0px auto;
+}

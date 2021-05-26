@@ -85,35 +85,28 @@ function loadPage(pageID=undefined, pushState=true) {
     if (pushState) window.history.pushState({}, 'FurWaz | WebSite', '/index.html?page='+IDtoString(pageID))
     document.title = "FurWaz | "+IDtoString(pageID, true);
     var content = document.getElementById("page-content");
-    if (pageID == PAGES.HOME) {
-        document.getElementById("promo-container").style.height = "50vh";
-        document.getElementById("promo-title").style.marginTop = "14vh";
-        document.getElementById("promo-infos-back").style.transform = "translate(calc(-70vh - 8vw), 0vh) skew(30deg)";
-        document.getElementById("promo-infos-front").style.top = "17vh";
-    }
-    else {
-        document.getElementById("promo-container").style.height = "30vh";
-        document.getElementById("promo-title").style.marginTop = "2.5vh";
-        document.getElementById("promo-infos-back").style.transform = "translate(calc(-70vh - 8vw), -10vh) skew(30deg)";
-        document.getElementById("promo-infos-front").style.top = "6.5vh";
-    }
     clearPage(content);
     setTimeout(() => {
         switch (pageID) {
             case PAGES.HOME:
                 loadHomePage(content);
+                document.getElementById("header-Home").style.color = "var(--color-primary)";
                 break;
             case PAGES.VIDEOS:
                 loadVideosPage(content);
+                document.getElementById("header-Videos").style.color = "var(--color-primary)";
                 break;
             case PAGES.SONGS:
                 loadSongsPage(content);
+                document.getElementById("header-Songs").style.color = "var(--color-primary)";
                 break;
             case PAGES.PROJECTS:
                 loadProjectsPage(content);
+                document.getElementById("header-Projects").style.color = "var(--color-primary)";
                 break;
             case PAGES.ABOUT:
                 loadAboutPage(content);
+                document.getElementById("header-About").style.color = "var(--color-primary)";
                 break;
     
             default:
@@ -135,6 +128,11 @@ function clearPage(content) {
             content.firstChild.remove();
         }
     }, 200);
+    document.getElementById("header-Home").style.color = "var(--color-white)";
+    document.getElementById("header-Videos").style.color = "var(--color-white)";
+    document.getElementById("header-Songs").style.color = "var(--color-white)";
+    document.getElementById("header-Projects").style.color = "var(--color-white)";
+    document.getElementById("header-About").style.color = "var(--color-white)";
 }
 
 function getRandomAnimationIn() {return animationsIn[Math.round(Math.random()*(animationsIn.length-1))];}

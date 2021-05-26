@@ -1,12 +1,12 @@
 var http = require('http');
-var fs = require('fs');
-/**@type {http.Server} */
-var server = http.createServer( (req, res) => {
-    if (req.url == "/") req.url = "/index.html";
-    if (req.url.startsWith("/index.html")) {
-        res.end(fs.readFileSync("./index.html"));
-        return
-    }
-    res.end(fs.readFileSync("."+req.url))
+var express = require('express');
+const app = express();
+const server = http.createServer(app);
+app.get('/*', (req, res) => {
+    let path = req.url;
+    if (req.url == "/") path = "/index.html";
+    path = path.split("?")[0];
+    path = __dirname+path;
+    res.sendFile(path);
 });
 server.listen(8080);

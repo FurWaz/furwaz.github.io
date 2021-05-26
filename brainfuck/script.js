@@ -115,7 +115,7 @@ function updateCursorPos() {
     var cellCenter = (cellDims.x+cellDims.width/2);
     var pos = (cellCenter/sizeX)*(cursorBounds.max-cursorBounds.min);
     var screenCenter = document.body.getBoundingClientRect().width/2;
-    spaceLeft -= cellCenter-screenCenter;
+    spaceLeft -= (cellCenter-screenCenter)/6;
     if (spaceLeft > 0) {
         collection.style.paddingLeft = spaceLeft+"px";
         collection.style.paddingRight = "0px";

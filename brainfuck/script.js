@@ -34,13 +34,19 @@ window.onload = () => {
     opPerSec.onkeyup = ev => {
         var val = parseInt(opPerSec.value);
         if (!isNaN(val)) {
+            val = clamp(val, 1, 200)
             setOpPerSec(val);
+            opPerSec.value = val;
         }
     };
 
     addNewCase();
     updateCursorPos();
-    setInterval(gameloop, 33);
+    setInterval(gameloop, 5);
+}
+
+function clamp(val, min, max) {
+    return Math.min(Math.max(val, min), max);
 }
 
 function setOpPerSec(nbr) {

@@ -98,7 +98,7 @@ p.case {
 }
 
 #code-zone {
-    height: 35vh;
+    height: 30vh;
     width: calc(100% - var(--padding) * 2 - var(--border) * 2);
     overflow: hidden;
     border: none;
@@ -163,7 +163,7 @@ button, #opPerSec {
 
 #colorizer {
     position: relative;
-    height: 35vh;
+    height: 30vh;
     width: calc(100vw - var(--padding) * 2 - var(--border) * 2);
     overflow: hidden;
     border: none;

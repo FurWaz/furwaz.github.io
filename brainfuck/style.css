@@ -1,10 +1,12 @@
 :root {
-    --color-black: #173f5f;
-    --color-blue: #20639b;
-    --color-green: #3caea3;
-    --color-yellow: #f6d55c;
-    --color-red: #ed553b;
-    --color-white: #ebf0f5;
+    --color-black: #2c3e50;
+    --color-blue: #2980b9;
+    --color-green: #27ae60;
+    --color-yellow: #f1c40f;
+    --color-red: #c0392b;
+    --color-orange: #e67e22;
+    --color-purple: #8e44ad;
+    --color-white: #ecf0f1;
 
     --border: 10px;
     --padding: 5vw;
@@ -33,7 +35,7 @@ p {
 }
 
 h1 {
-    font-size: 30px;
+    font-size: 3vh;
     font-family: Arial, Helvetica, sans-serif;
     text-decoration: underline 2px var(--color-white);
     color: var(--color-white);
@@ -107,11 +109,12 @@ p.case {
     border-radius: var(--border);
     overflow: hidden;
     color: var(--color-white);
-    font-size: 1.8vh;
+    font-size: 2vh;
     font-family: Arial, Helvetica, sans-serif;
     letter-spacing: 5px;
     padding: var(--border);
     margin-bottom: 1vh;
+    -webkit-text-fill-color: transparent;
 }
 
 #result-zone {
@@ -126,7 +129,7 @@ p.case {
     border-radius: var(--border);
     overflow: hidden;
     color: var(--color-white);
-    font-size: 1.8vh;
+    font-size: 2vh;
     font-family: Arial, Helvetica, sans-serif;
     letter-spacing: 5px;
     padding: var(--border);
@@ -145,6 +148,7 @@ button, #opPerSec {
     border: none;
     outline: none;
     width: 6vw;
+    min-width: max-content;
     height: 5vh;
     cursor: pointer;
     color: var(--color-black);
@@ -167,14 +171,12 @@ button, #opPerSec {
     margin: 0px var(--padding);
     border-radius: var(--border);
     overflow-y: scroll;
-    color: transparent;
-    font-size: 1.8vh;
+    color: var(--color-white);
+    font-size: 2vh;
     font-family: Arial, Helvetica, sans-serif;
     letter-spacing: 5px;
     padding: var(--border);
-    margin-top: 3vh;
     pointer-events: none;
-    overflow: hidden;
 }
 
 .nosize {
@@ -245,4 +247,9 @@ div.ops {
     color: var(--color-white);
     text-align: center;
     margin: 0px auto;
+}
+
+span.spantxt {
+    border-radius: 4px;
+    background-color: var(--color-blue);
 }

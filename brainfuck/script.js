@@ -1,7 +1,7 @@
 /*
     @author: FurWaz
 */
-
+var helloWorld = "++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.";
 var cursorBounds = {min: 5, max: 94}
 var cases = [];
 /**@type {HTMLDivElement} */
@@ -34,15 +34,61 @@ window.onload = () => {
     opPerSec.onkeyup = ev => {
         var val = parseInt(opPerSec.value);
         if (!isNaN(val)) {
-            val = clamp(val, 1, 200)
+            val = clamp(val, 1, 100)
             setOpPerSec(val);
             opPerSec.value = val;
         }
     };
+    opPerSec.onkeyup();
+
+    codeZone.onkeydown = ev => {
+        switch (ev.key) {
+            case "[":
+                if (codeZone.selectionStart == codeZone.selectionEnd) {
+                    setTimeout(() => {
+                        var start = codeZone.selectionStart;
+                        codeZone.value = 
+                        codeZone.value.substring(0, codeZone.selectionStart) + "]" +
+                        codeZone.value.substring(codeZone.selectionStart, codeZone.value.length);
+                        codeZone.selectionStart = start;
+                        codeZone.selectionEnd = start;
+                    }, 5);
+                } else {
+                    var selectedText = codeZone.value.substring(codeZone.selectionStart, codeZone.selectionEnd);
+                    var start = codeZone.selectionStart;
+                    var end = codeZone.selectionEnd;
+                    setTimeout(() => {
+                        codeZone.value = 
+                        codeZone.value.substring(0, codeZone.selectionStart) + selectedText + "]" +
+                        codeZone.value.substring(codeZone.selectionEnd, codeZone.value.length);
+                        codeZone.selectionStart = start+1;
+                        codeZone.selectionEnd = end+1;
+                    }, 5);
+                }
+                break;
+            case "]":
+                if (codeZone.value.charAt(codeZone.selectionEnd) == "]")
+                setTimeout(() => {
+                    var start = codeZone.selectionEnd;
+                    codeZone.value = 
+                    codeZone.value.substring(0, codeZone.selectionEnd) +
+                    codeZone.value.substring(codeZone.selectionEnd+1, codeZone.value.length);
+                    codeZone.selectionEnd = start;
+                }, 5);
+                break;
+            default:
+                break;
+        }
+        setTimeout(() => {
+            colorizer.innerHTML = colorizeCode(codeZone.value);
+        }, 5);
+    };
+
+    codeZone.value = helloWorld;
 
     addNewCase();
     updateCursorPos();
-    setInterval(gameloop, 5);
+    setInterval(gameloop, 10);
 }
 
 function clamp(val, min, max) {
@@ -130,8 +176,8 @@ function updateCursorPos() {
 function gameloop() {
     updateCursorPos();
     if (!codeDone && !scriptBlocked) {
-        codeDT += 33;
-        if (codeDT > 1000/opPerSecond) {
+        codeDT += 10;
+        if (codeDT >= 1000/opPerSecond) {
             if (charIndex >= compiledCode.length) {
                 highlightChar(-1);
                 codeDone = true;
@@ -142,6 +188,7 @@ function gameloop() {
             codeDT = 0;
         }
     }
+    codeZone.selectionStart +" | "+ codeZone.selectionEnd
 }
 
 function compileCode() {
@@ -190,17 +237,17 @@ function reset() {
         collection.firstChild.remove();
     cursorIndex = 0;
     resultZone.value = "";
-    colorizer.innerHTML = "";
+    colorizer.innerHTML = colorizeCode(codeZone.value);
     addNewCase();
 }
 
 function highlightChar(index) {
-    if (index < 0) colorizer.innerHTML = "";
+    if (index < 0) colorizer.innerHTML = colorizeCode(codeZone.value);
     else {
         colorizer.innerHTML = 
-        compiledCode.substring(0, index) +
-        "<span style='color: var(--color-green);'>" + compiledCode.charAt(index) + "</span>" +
-        compiledCode.substring(index+1, compiledCode.length);
+        colorizeCode(codeZone.value.substring(0, index)) +
+        "<span class='spantxt'>" + codeZone.value.charAt(index) + "</span>" +
+        colorizeCode(codeZone.value.substring(index+1, codeZone.value.length));
     }
 }
 
@@ -248,4 +295,45 @@ function endBrackets() {
         while (compiledCode.charAt(--charIndex) != "[");
         scriptBlocked = false;
     }
+}
+
+function colorizeCode(code) {
+    var coloredCode = "";
+    for (let i = 0; i < code.length; i++) {
+        const l = code.charAt(i);
+        let chunk = "";
+        switch (l) {
+            case "+":
+                chunk = span(l, "green");
+                break;
+            case "-":
+                chunk = span(l, "red");
+                break;
+            case ",":
+            case ".":
+                chunk = span(l, "purple");
+                break;
+            case "[":
+            case "]":
+                chunk = span(l, "orange");
+                break;
+            case ">":
+            case "<":
+                chunk = span(l, "yellow");
+                break;
+        
+            default:
+                chunk = span(l);
+                break;
+        }
+        coloredCode += chunk;
+    }
+    return coloredCode;
+}
+
+function span(text, color) {
+    if (color == null)
+        return "<span style='color: var(--color-white); background-color: var(--color-red);'>"+text+"</span>";
+    else
+        return "<span style='color: var(--color-"+color+");'>"+text+"</span>";
 }

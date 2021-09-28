@@ -1,17 +1,30 @@
-var animationsIn = ["spawn-in-left", "spawn-in-right", "spawn-in-top", "spawn-in-bottom"];
-var animationsOut = ["spawn-out-left", "spawn-out-right", "spawn-out-top", "spawn-out-bottom"];
-const PAGES = {
-    HOME: 1,
-    VIDEOS: 2,
-    SONGS: 3,
-    PROJECTS: 4,
-    ABOUT: 5
+function EMPTY_FUNC(){}
+
+const PAGES = [
+    {name: "Home", loadPage: EMPTY_FUNC},
+    {name: "Projects", loadPage: EMPTY_FUNC},
+    {name: "About", loadPage: EMPTY_FUNC}
+]
+
+const OPTIONS_CONTAINER = document.getElementById("opts-container");
+
+function getPageDOM(pageID=PAGES[0]) {
+    return document.getElementById("header-"+pageID.name);
 }
 
 window.onload = () => {
-    var url = window.location.href;
-    var pageID = url.split("page=")[1];
-    loadPage(stringToID(pageID));
+    PAGES.forEach(p => {
+        let opt = document.createElement("div");
+        opt.classList.add("header-opt-container");
+        opt.id = "header-"+p.name;
+        opt.onclick = ()=>{loadPage(p)};
+        let title = document.createElement("h2");
+        title.classList.add("header-opt-title");
+        title.innerHTML = p.name;
+        opt.appendChild(title);
+        OPTIONS_CONTAINER.appendChild(opt);
+    });
+    loadPage(PAGES[0]);
 }
 
 window.onpopstate = function(event) {
@@ -25,93 +38,30 @@ window.onpopstate = function(event) {
  * @param {any} pageInfo 
  */
 function stringToID(pageInfo=undefined) {
-    var result = PAGES.HOME;
-    switch (pageInfo) {
-        case "home":
-            result = PAGES.HOME;
-            break;
-        case "videos":
-            result = PAGES.VIDEOS;
-            break;
-        case "songs":
-            result = PAGES.SONGS;
-            break;
-        case "projects":
-            result = PAGES.PROJECTS;
-            break;
-        case "about":
-            result = PAGES.ABOUT;
-            break;
-        default:
-            break;
-    }
+    var result = PAGES[0];
+    PAGES.forEach(p => {
+        if (p.name == pageInfo)
+            result = p;
+    });
     return result;
 }
 /**
  * Convert any page ID to string
  * @param {number} pageID
  */
-function IDtoString(pageID=PAGES.HOME, capitalize=false) {
-    var result = "home";
-    switch (pageID) {
-        case PAGES.HOME:
-            result = "home";
-            break;
-        case PAGES.VIDEOS:
-            result = "videos";
-            break;
-        case PAGES.SONGS:
-            result = "songs";
-            break;
-        case PAGES.PROJECTS:
-            result = "projects";
-            break;
-        case PAGES.ABOUT:
-            result = "about";
-            break;
-        default:
-            break;
-    }
-    result = capitalize? result[0].toUpperCase()+result.substring(1, result.length): result;
-    return result;
+function IDtoString(pageInfo=PAGES[0]) {
+    return pageInfo.name;
 }
 
-/**
- * Loads the required web page
- * @param {string} pageID 
- */
-function loadPage(pageID=undefined, pushState=true) {
-    if (pageID == undefined) pageID = PAGES.HOME;
-    if (pushState) window.history.pushState({}, 'FurWaz | WebSite', '/index.html?page='+IDtoString(pageID))
+function loadPage(pageID=PAGES[0], pushState=true) {
     document.title = "FurWaz | "+IDtoString(pageID, true);
+    if (pushState) window.history.pushState({}, document.title, '/index.html?page='+IDtoString(pageID))
     var content = document.getElementById("page-content");
     clearPage(content);
     setTimeout(() => {
-        switch (pageID) {
-            case PAGES.HOME:
-                loadHomePage(content);
-                document.getElementById("header-Home").style.color = "var(--color-primary)";
-                break;
-            case PAGES.VIDEOS:
-                loadVideosPage(content);
-                document.getElementById("header-Videos").style.color = "var(--color-primary)";
-                break;
-            case PAGES.SONGS:
-                loadSongsPage(content);
-                document.getElementById("header-Songs").style.color = "var(--color-primary)";
-                break;
-            case PAGES.PROJECTS:
-                loadProjectsPage(content);
-                document.getElementById("header-Projects").style.color = "var(--color-primary)";
-                break;
-            case PAGES.ABOUT:
-                loadAboutPage(content);
-                document.getElementById("header-About").style.color = "var(--color-primary)";
-                break;
-    
-            default:
-                break;
-        }
+        let div = getPageDOM(pageID);
+        pageID.loadPage();
+        div.firstChild.style.color = "var(--color-orange-2)";
     }, 250);
 }
 
@@ -128,12 +78,7 @@ function clearPage(content) {
             content.firstChild.remove();
         }
     }, 200);
-    document.getElementById("header-Home").style.color = "var(--color-white)";
-    document.getElementById("header-Videos").style.color = "var(--color-white)";
-    document.getElementById("header-Songs").style.color = "var(--color-white)";
-    document.getElementById("header-Projects").style.color = "var(--color-white)";
-    document.getElementById("header-About").style.color = "var(--color-white)";
+    PAGES.forEach(p => {
+        getPageDOM(p).firstChild.style.color = "var(--color-orange-3)";
+    });
 }
-
-function getRandomAnimationIn() {return animationsIn[Math.round(Math.random()*(animationsIn.length-1))];}
-function getRandomAnimationOut() {return animationsOut[Math.round(Math.random()*(animationsOut.length-1))];}

@@ -1,84 +1,34 @@
-function EMPTY_FUNC(){}
-
-const PAGES = [
-    {name: "Home", loadPage: EMPTY_FUNC},
-    {name: "Projects", loadPage: EMPTY_FUNC},
-    {name: "About", loadPage: EMPTY_FUNC}
-]
-
-const OPTIONS_CONTAINER = document.getElementById("opts-container");
-
-function getPageDOM(pageID=PAGES[0]) {
-    return document.getElementById("header-"+pageID.name);
-}
+let menus = ["home", "projects", "about"];
 
 window.onload = () => {
-    PAGES.forEach(p => {
-        let opt = document.createElement("div");
-        opt.classList.add("header-opt-container");
-        opt.id = "header-"+p.name;
-        opt.onclick = ()=>{loadPage(p)};
-        let title = document.createElement("h2");
-        title.classList.add("header-opt-title");
-        title.innerHTML = p.name;
-        opt.appendChild(title);
-        OPTIONS_CONTAINER.appendChild(opt);
-    });
-    loadPage(PAGES[0]);
+    generateCodeLines();
+    selectMenu(menus[0]);
 }
 
-window.onpopstate = function(event) {
-    var url = window.location.href;
-    var pageID = url.split("page=")[1];
-    loadPage(stringToID(pageID), false);
-};
-
-/**
- * Convert any string to a page ID
- * @param {any} pageInfo 
- */
-function stringToID(pageInfo=undefined) {
-    var result = PAGES[0];
-    PAGES.forEach(p => {
-        if (p.name == pageInfo)
-            result = p;
-    });
-    return result;
-}
-/**
- * Convert any page ID to string
- * @param {number} pageID
- */
-function IDtoString(pageInfo=PAGES[0]) {
-    return pageInfo.name;
-}
-
-function loadPage(pageID=PAGES[0], pushState=true) {
-    document.title = "FurWaz | "+IDtoString(pageID, true);
-    if (pushState) window.history.pushState({}, document.title, '/index.html?page='+IDtoString(pageID))
-    var content = document.getElementById("page-content");
-    clearPage(content);
-    setTimeout(() => {
-        let div = getPageDOM(pageID);
-        pageID.loadPage();
-        div.firstChild.style.color = "var(--color-orange-2)";
-    }, 250);
-}
-
-/**
- * Clear the content in the given element
- * @param {HTMLDivElement} content
- */
-function clearPage(content) {
-    for (let i = 0; i < content.childElementCount; i++) {
-        content.children[i].classList.add(getRandomAnimationOut());
+function generateCodeLines() {
+    let colors = ["var(--color-white)", "var(--color-red)", "var(--color-yellow)", "var(--color-green)", "var(--color-grey)"];
+    let container = document.getElementById("header-lines");
+    let nbLines = 16;
+    for (let i = 0; i < nbLines; i++) {
+        setTimeout(() => {
+            let cont = document.createElement("div");
+            cont.classList.add("lines-container");
+            let max = Math.random() * 20 + 1;
+            for (let j = 0; j < max; j++) {
+                let line = document.createElement("div");
+                line.classList.add("code-line");
+                line.style.backgroundColor = colors[Math.round(Math.random() * (colors.length - 1))];
+                line.style.width = (Math.random() * 40 + 20) + "px";
+                line.style.marginRight = (Math.random()*10 + 10) + "px";
+                line.style.opacity = (j/max+0.02)+"";
+                cont.appendChild(line);
+            }
+            container.appendChild(cont);
+        }, i * 50);
     }
-    setTimeout(() => {
-        while (content.firstChild) {
-            content.firstChild.remove();
-        }
-    }, 200);
-    PAGES.forEach(p => {
-        getPageDOM(p).firstChild.style.color = "var(--color-orange-3)";
-    });
+}
+
+function selectMenu(name = menus[0]) {
+    menus.forEach(m => {document.getElementById("opts-"+m).style.color = "var(--color-grey)";});
+    document.getElementById("opts-"+name).style.color = "var(--color-white)";
 }

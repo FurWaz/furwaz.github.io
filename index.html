@@ -2,32 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" href="./resources/pics/logo.png" type="image/png">
     <meta property="og:title" content="FurWaz | Website">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="http://furwaz.github.io">
-    <meta property="og:image" content="http://furwaz.github.io/resources/images/thumb.png">
-    <meta property="og:description" content="OwO, what's this ? It's my website !">
-    <meta name="theme-color" content="#FF0000">
-    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:url" content="https://furwaz.github.io/">
+    <meta property="og:image" content="http://furwaz.github.io/resources/pics/logo.png">
+    <meta property="og:description" content="FurWaz | Website">
+    <meta name="theme-color" content="#FFFFFF">
     <link rel="stylesheet" href="./style.css">
-    <link rel="shortcut icon" href="./resources/images/icon.png" type="image/x-icon">
-    <script src="./script.js" defer></script>
-    <title>FurWaz - Home</title>
+    <script src="./script.js"></script>
+    <title>FurWaz | Website</title>
 </head>
 <body>
     <header>
-        <div class="clamp">
-            <div class="band2"></div>
-            <div class="band1"></div>
-            <h1>FurWaz</h1>
+        <div id="header-promo">
+            <div id="header-title">
+                <h1 id="header-text">FurWaz</h1>
+            </div>
+            <div id="header-lines"></div>
         </div>
-        <div id="opts-container"></div>
+        <div id="options-container">
+            <div class="option-container" onclick="selectMenu('home')">
+                <h2 id="opts-home">Home</h2>
+            </div>
+            <div class="option-container" onclick="selectMenu('projects')">
+                <h2 id="opts-projects">Projects</h2>
+            </div>
+            <div class="option-container" onclick="selectMenu('about')">
+                <h2 id="opts-about">About</h2>
+            </div>
+            <div class="packing-right">
+                <img src="./resources/pics/logo.png" alt="furwaz logo" id="header-logo">
+            </div>
+        </div>
     </header>
-    <div id="page-content">
-
-    </div>
-    <footer>
-
-    </footer>
 </body>
 </html>

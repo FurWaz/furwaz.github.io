@@ -42,7 +42,7 @@ export function InitHeader(container) {
     if (window.location.href.split("?").length > 1)
         displayMenu = window.location.href.split("?")[1].split("=")[1];
     console.log(displayMenu)
-    setTimeout(() => {selectMenu(displayMenu);}, index * 100 + 50);
+    setTimeout(() => {selectMenu(displayMenu, false);}, index * 100 + 50);
 }
 
 export function selectMenu(name = menus[0], pushState = true) {
@@ -51,4 +51,8 @@ export function selectMenu(name = menus[0], pushState = true) {
     document.title = "FurWaz - "+name;
     if (pushState)
         history.pushState({menu: name}, document.title, "?menu="+name);
+}
+
+window.onpopstate = ev => {
+    selectMenu(ev.state.menu, false);
 }

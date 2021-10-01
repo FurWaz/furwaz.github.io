@@ -1,16 +1,6 @@
-@keyframes fade-left {
-    0% {opacity: 0; transform: translateX(10%);}
-    100% {opacity: 1; transform: none;}
-}
-@keyframes fade-right {
-    0% {opacity: 0; transform: translateX(-10%);}
-    100% {opacity: 1; transform: none;}
-}
-
 header {
     width: 100%;
-    height: fit-content;
-    min-height: 150vh;
+    height: min-content;
 }
 
 #header-promo {
@@ -34,7 +24,7 @@ header {
     font-size: 15vh;
     margin: 0px 4vh;
     text-shadow: 0px 0.5vh 4vh #0008;
-    animation: fade-right 1s ease;
+    animation: fade-in-right 1s ease;
     z-index: 5;
 }
 
@@ -68,7 +58,7 @@ header {
     height: fit-content;
     margin-top: 0.5vh;
     opacity: 1;
-    animation: fade-left 200ms ease;
+    animation: fade-in-left 200ms ease;
 }
 
 .code-line {
@@ -85,8 +75,9 @@ header {
     width: 8%;
     min-width: max-content;
     flex-direction: column;
+    cursor: pointer;
     justify-content: center;
-    animation: fade-right 500ms ease;
+    animation: fade-in-right 500ms ease;
 }
 
 .option-container > h2 {
@@ -95,7 +86,6 @@ header {
     font-family: "Roboto";
     text-align: center;
     margin: auto 20px;
-    cursor: pointer;
     transition: color 200ms ease;
 } .option-container:hover > h2 {
     color: var(--color-white);
@@ -105,5 +95,5 @@ header {
     height: 100%;
     object-fit: scale-down;
     margin: 0px 1vh;
-    animation: fade-left 1000ms ease;
+    animation: fade-in-left 1000ms ease;
 }

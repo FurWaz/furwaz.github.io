@@ -1,4 +1,26 @@
 @import "./style/header.css";
+@import "./style/account.css";
+
+@keyframes fade-in-left {
+    0% {opacity: 0; transform: translateX(10%);}
+    100% {opacity: 1; transform: translateX(0%);}
+}
+@keyframes fade-in-right {
+    0% {opacity: 0; transform: translateX(-10%);}
+    100% {opacity: 1; transform: translateX(0%);}
+}
+@keyframes fade-out-left {
+    0% {opacity: 1; transform: translateX(0%);}
+    100% {opacity: 0; transform: translateX(10%);}
+}
+@keyframes fade-out-right {
+    0% {opacity: 1; transform: translateX(0%);}
+    100% {opacity: 0; transform: translateX(-10%);}
+}
+
+.anim-fade-in-right {
+    animation: fade-in-right 500ms ease forwards;
+}
 
 @font-face {
     font-family: "Roboto";
@@ -30,6 +52,8 @@ body {
     background-color: var(--color-black);
     margin: 0px;
     padding: 0px;
+    min-height: 150vh;
+    overflow-x: hidden;
 }
 
 .packing-right {
@@ -38,4 +62,18 @@ body {
     justify-content: right;
     width: 100%;
     height: 100%;
+}
+
+input {
+    font-size: 16px;
+    color: var(--color-white);
+    border-radius: var(--border-radius);
+    outline: none;
+    border: solid 1px var(--color-blue);
+    background-color: transparent;
+    padding: 2px 4px;
+    font-family: "Roboto";
+    transition: background-color 200ms ease;
+} input:hover {
+    background-color: #FFF1;
 }

@@ -10,7 +10,7 @@
     <meta property="og:description" content="FurWaz | Website">
     <meta name="theme-color" content="#FFFFFF">
     <link rel="stylesheet" href="./style.css">
-    <script src="./script.js"></script>
+    <script type="module" src="./script.js"></script>
     <title>FurWaz | Website</title>
 </head>
 <body>
@@ -21,16 +21,8 @@
             </div>
             <div id="header-lines"></div>
         </div>
-        <div id="options-container">
-            <div class="option-container" onclick="selectMenu('home')">
-                <h2 id="opts-home">Home</h2>
-            </div>
-            <div class="option-container" onclick="selectMenu('projects')">
-                <h2 id="opts-projects">Projects</h2>
-            </div>
-            <div class="option-container" onclick="selectMenu('about')">
-                <h2 id="opts-about">About</h2>
-            </div>
+        <div id="options-band">
+            <div id="options-container"></div>
             <div class="packing-right">
                 <img src="./resources/pics/logo.png" alt="furwaz logo" id="header-logo">
             </div>

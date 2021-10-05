@@ -68,7 +68,6 @@ input {
     font-size: 16px;
     color: var(--color-white);
     border-radius: var(--border-radius);
-    outline: none;
     border: solid 1px var(--color-blue);
     background-color: transparent;
     padding: 2px 4px;

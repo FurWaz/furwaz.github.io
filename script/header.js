@@ -27,7 +27,7 @@ export function InitHeader(container) {
     let index = 0;
     menus.forEach(m => {
         setTimeout(() => {
-            let cont = document.createElement("div");
+            let cont = document.createElement("button");
             cont.classList.add("option-container");
             cont.onclick = () => {selectMenu(m)};
             let title = document.createElement("h2");

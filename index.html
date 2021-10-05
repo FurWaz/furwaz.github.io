@@ -25,7 +25,7 @@
             <img src="./resources/pics/logo.png" alt="furwaz logo" id="header-logo">
             <div id="options-container"></div>
             <div class="packing-right">
-                <div class="option-container" id="account-btn">
+                <button class="option-container" id="account-btn">
                     <h2 class="option-text">Account</h2>
                 </div>
                 <div id="account-panel">
@@ -37,16 +37,18 @@
                     <div class="account-plus" id="account-plus1">
                         <span class="account-spacer"></span>
                         <h3 class="account-label">Email</h3>
-                        <input type="password" name="" id="password-input" class="account-input" placeholder="Your Password">
+                        <input type="email" name="" id="email-input" class="account-input" placeholder="Your Password">
                     </div>
                     <span class="account-spacer"></span>
                     <h3 class="account-label">Password</h3>
                     <input type="password" name="" id="password-input" class="account-input" placeholder="Your Password">
                     <div class="account-plus" id="account-plus2">
                         <span class="account-spacer"></span>
-                        <h3 class="account-label">Password (2x)</h3>
-                        <input type="password" name="" id="password-input" class="account-input" placeholder="Your Password">
+                        <h3 class="account-label">Password (yes, again)</h3>
+                        <input type="password" name="" id="password2-input" class="account-input" placeholder="Your Password">
                     </div>
+                    <span class="account-spacer"></span>
+                    <p id="account-logger">Log info</p>
                     <span class="account-spacer"></span>
                     <div class="account-buttons">
                         <input type="button" value="validate" class="account-btn" id="btn-validate">

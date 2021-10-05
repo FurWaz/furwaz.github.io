@@ -77,6 +77,8 @@ header {
     flex-direction: column;
     cursor: pointer;
     justify-content: center;
+    background-color: transparent;
+    border: none;
     animation: fade-in-right 500ms ease;
 }
 

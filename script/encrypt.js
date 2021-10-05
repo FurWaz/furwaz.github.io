@@ -1,5 +1,5 @@
 var alphabet, key, ready = false;
-export function setupEncryptAttributs(a, k) {ready=true;alphabet=a;key=k}
+export function setupEncryptAttributs(a, k) {ready=true;alphabet=a;key=k;}
 export function isEncryptionReady() {return ready;}
 export function getEncrypted(x, l) {
     var n = "";

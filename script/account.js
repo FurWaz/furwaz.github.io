@@ -1,5 +1,4 @@
 import { COLOR } from "./colors.js";
-import { onValue, ref, database } from "./firebase.js";
 const EMAIL_REGEX = /[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)?@[a-zA-Z0-9]+\.[a-zA-Z0-9]+/;
 
 export function setupAccount() {

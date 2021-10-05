@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-analytics.js";
-import { getDatabase, get, ref, onValue } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-database.js";
+import { getFirestore, collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-firestore.js";
 import { setupEncryptAttributs } from "./encrypt.js";
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -23,11 +23,26 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+const database = getFirestore();
 
 export function setupDatabase() {
-    const database = getDatabase(app);
-    onValue(ref(database, "/encrypt/"), (v) => {
-        let data = v.val();
-        setupEncryptAttributs(data.alphabet, data.key);
+    console.log(database);
+    getDocs(query(collection(database, "users"))).then(v => {
+        console.log("response: ")
+        v.forEach(el => {
+            console.log(el.data());
+        });
+    });
+    getDocs(query(collection(database, "users"), where("username", "==", "FurWaz"))).then(v => {
+        console.log("response: ")
+        v.forEach(el => {
+            console.log(el.data());
+        });
+    });
+    getDocs(query(collection(database, "users"), where("username", "==", "Toxicbloud"))).then(v => {
+        console.log("response: ")
+        v.forEach(el => {
+            console.log(el.data());
+        });
     });
 }

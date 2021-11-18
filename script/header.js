@@ -1,4 +1,16 @@
-export let menus = ["Home", "Projects", "About"];
+import { setupProjects } from "./projects.js";
+
+function emptyContent() {
+    let dom = document.getElementById("page-content");
+    while (dom.firstChild)
+        dom.firstChild.remove();
+}
+
+export let menus = [
+    {title: "Home", callback: emptyContent},
+    {title: "Projects", callback: setupProjects},
+    {title: "About", callback: emptyContent}
+];
 
 export function generateCodeLines() {
     let colors = ["var(--color-white)", "var(--color-red)", "var(--color-blue)", "var(--color-yellow)", "var(--color-green)", "var(--color-grey)"];
@@ -29,11 +41,11 @@ export function InitHeader(container) {
         setTimeout(() => {
             let cont = document.createElement("button");
             cont.classList.add("option-container");
-            cont.onclick = () => {selectMenu(m)};
+            cont.onclick = () => {selectMenu(m);};
             let title = document.createElement("h2");
-            title.id = "opts-"+m;
+            title.id = "opts-"+m.title;
             title.classList.add("option-text");
-            title.innerHTML = m;
+            title.innerHTML = m.title;
             cont.appendChild(title);
             container.appendChild(cont);
         }, (index++) * 100);
@@ -42,17 +54,18 @@ export function InitHeader(container) {
     if (window.location.href.split("?").length > 1)
         displayMenu = window.location.href.split("?")[1].split("=")[1];
     console.log(displayMenu)
-    setTimeout(() => {selectMenu(displayMenu, false);}, index * 100 + 50);
+    setTimeout(() => {selectMenu(menus.find(val => val.title == displayMenu), false);}, index * 100 + 50);
 }
 
 export function selectMenu(name = menus[0], pushState = true) {
-    menus.forEach(m => {document.getElementById("opts-"+m).style.color = "var(--color-grey)";});
-    document.getElementById("opts-"+name).style.color = "var(--color-white)";
-    document.title = "FurWaz - "+name;
+    if (name.callback != null) name.callback();
+    menus.forEach(m => {document.getElementById("opts-"+m.title).style.color = "var(--color-grey)";});
+    document.getElementById("opts-"+name.title).style.color = "var(--color-white)";
+    document.title = "FurWaz - "+name.title;
     if (pushState)
-        history.pushState({menu: name}, document.title, "?menu="+name);
+        history.pushState({menu: name.title}, document.title, "?menu="+name.title);
 }
 
 window.onpopstate = ev => {
-    selectMenu(ev.state.menu, false);
+    selectMenu(menus.find(val => val.title == ev.state.menu), false);
 }

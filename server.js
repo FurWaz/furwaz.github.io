@@ -9,4 +9,4 @@ app.get('/*', (req, res) => {
     path = __dirname+path;
     res.sendFile(path);
 });
-server.listen(8080);
+server.listen(80);

@@ -1,5 +1,6 @@
 @import "./style/header.css";
 @import "./style/account.css";
+@import "./style/cards.css";
 
 @keyframes fade-in-left {
     0% {opacity: 0; transform: translateX(10%);}
@@ -75,4 +76,9 @@ input {
     transition: background-color 200ms ease;
 } input:hover {
     background-color: #FFF1;
+}
+
+#page-content {
+    width: 100%;
+    height: 100%;
 }

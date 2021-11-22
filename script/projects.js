@@ -21,7 +21,7 @@ let projects = [
     {
         title: "WebXR",
         url: "https://github.com/FurWaz/WebXR",
-        website: "https://furwaz.github.io/WebXR/",
+        website: "https://furwaz.github.io/WebXR/client/",
         icon: "https://immersiveweb.dev/images/webxrlogo.png"
     }
 ]

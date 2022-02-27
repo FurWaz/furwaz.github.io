@@ -16,6 +16,12 @@ renderer.toneMappingExposure = 2.5;
 renderer.setPixelRatio( window.devicePixelRatio );
 document.body.appendChild(renderer.domElement);
 
+window.onresize = ev => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize( window.innerWidth, window.innerHeight );
+};
+
 camera.position.set(0, 1.8, 0);
 camera.lookAt(-1, 1.4, 0);
 
@@ -28,7 +34,6 @@ player.attachCamera(camera);
 //load 3D models
 Loader.setScene(scene);
 Loader.loadModel("./model/map.glb");
-
 
 //light
 const yo = new THREE.AmbientLight(0x404040, 5); // soft white light
